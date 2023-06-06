@@ -1,0 +1,54 @@
+@using UniversityManagementMvc.Dto
+@model ChancellorDto
+<head>
+    <style>
+        #trans:hover{
+    background-color: green;
+  }
+    </style>
+</head>
+
+<h3>Are you sure you want disactivate this account?</h3>
+    <hr />
+    <form asp-controller= "Chancellor" asp-action="DeleteChancellor">
+        <input asp-for = "ChancellorId" hidden/>
+        <div> 
+            <div>
+                <label asp-for = "ChancellorId"></label>
+                <input asp-for = "ChancellorId" disabled class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "FirstName"></label>
+                <input asp-for = "FirstName" disabled class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "LastName"></label>
+                <input asp-for = "LastName" disabled class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "Address"></label>
+                <input asp-for = "Address" disabled class= "form-control"/>
+            </div>
+           
+            <div>
+                <label asp-for = "Gender"></label>
+                <input asp-for = "Gender" disabled class= "form-control"/>
+            </div>
+            <div>
+                <label asp-for = "Email"></label>
+                <input asp-for = "Email" disabled class= "form-control"/>
+            </div>
+           
+            
+   
+    <br><br>
+    </div>
+     <button id="trans" onclick="myFunction()" asp-controller = "Chancelor" type="submit" asp-action="DeleteChancellor" asp-route-chancellorId=@Model.ChancellorId><i class="bi bi-trash"></i>Confirm</button>&nbsp;
+    
+        <a id="trans" asp-controller="Chancellor" asp-action="Login"><i class="bi bi-card-checklist"></i>Back to List</a>
+        <script>
+            function myFunction(){
+                    alert("would you like to proceed ?")
+              }
+          </script>
+    </form>

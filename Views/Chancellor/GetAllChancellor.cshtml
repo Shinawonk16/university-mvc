@@ -1,0 +1,63 @@
+@* @using UniversityManagementMvc.Dto.ResponseModel
+@model List<ChancellorsResponseModel>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/font-awesome.min.css" />
+    <script src="~/scripts/w3.js"></script>
+    <div class="form-group">
+       <i class="fa fa-search-minus"></i><input type="search" id="search" class="form-control" oninput="w3.filterHTML('#list', '.chancellor', this.value)" placeholder="Search for chncellor">
+    </div>
+@if (@Model == null )
+{
+    <h1>No Registered Chancellor</h1>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table" id="list">
+            <caption>List of Chancellor</caption>
+            <thead>
+                <tr>
+                    <th scope="col">S/N</th>
+                    <th scope="col">FirstName</th>
+                     <th scope="col">LastName</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">PhoneNumber</th>
+                    <th scope="col">DateOfBirth</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Next Of Kin</th>
+                    <th scope="col">Profile Picture</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var chancellor in Model)
+                {
+                    <tr class="chancellor
+                    .">
+                        <th scope="row">@chancellor.Chance</th>
+                        <td>@chancellor.FirstName</td>
+                        <td>@chancellor.Email</td>
+                        <td>@chancellor.PhoneNumber</td>
+                        <td>@chancellor.DateOfBirth</td>
+                        <td>@chancellor.Gender</td>
+                        <td>@chancellor.Role</td>
+                        <td>@chancellor.NextOfKin</td>
+                        <td>@chancellor.Address</td>
+                        <td>@chancellor.CreatedOn</td>
+                        <td>
+                            <div class="btn-group">
+                                <a class="btn-primary btn" asp-action="P" asp-route-id=@chancellor.ChancellorId>View</a>
+                                
+                                <a class="btn-warning btn" asp-action="EditStaff" asp-route-id=@chancellor.ChancellorId>Update</a>
+                                
+                                <a class="btn-danger btn" asp-action="DeleteStaff" asp-route-id=@chancellor.ChancellorId>Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+} *@

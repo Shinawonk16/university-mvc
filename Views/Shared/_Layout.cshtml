@@ -1,0 +1,114 @@
+﻿@using System.Security.Claims
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    body {
+        background-image: url('/wwwroot/gat.jpg');
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+
+    }
+</style>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - UniversityManagementMvc</title>
+    <link rel="stylesheet" href="~/css/template.css" />
+    @* <link rel="stylesheet" href="~/css/font-awesome.min.css"> *@
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/UniversityManagementMvc.styles.css" asp-append-version="true" />
+</head>
+
+<body>
+
+    <header class="header">
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">UniversityManagement Application</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+                    aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                    <ul class="navbar-nav me-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link text-blue" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-blue" asp-area="" asp-controller="Home"
+                                asp-action="Privacy">Privacy</a>
+                        </li>
+                          <li class="nav-sign">
+                            <a class="nav-link text-gold" asp-area="" asp-controller="Home"
+                                asp-action="">SignUp as </a>
+                        </li>
+                            <div class="student">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Student"
+                                    asp-action="CreateNew">NewStudent</a>
+                            
+                            </div>
+                            <div class="student">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Student"
+                                    asp-action="CreateOLd">OLdStudent</a>
+                                
+                            </div>
+                            <div class="lecture">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Lecturer"
+                                    asp-action="CreateLecturer>">Lecturer</a>
+                                
+                            </div>
+                            <style>
+                             div{
+                                color: cornflowerblue;
+                             }
+                             .navbar navbar-expand-lg navbar-dark bg-primary{
+                                background-color: pink;
+                             }
+                            </style>
+                        
+                    </ul>
+
+                    <div>
+                        </span>
+
+                        <span><a asp-controller="Login" asp-action="Login" class="btn btn-primary"><i
+                                    class="bi bi-box-arrow-in-right"></i>Login 
+                        </a></span>
+                            @* <a asp-controller="Login" asp-action="Logout" class="btn btn-primary"><i
+                                    class="bi bi-box-arrow-in-right"></i> LogOut
+                            </a> *@
+
+
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - UniversityManagementMvc - <a asp-area="" asp-controller="Home"
+                asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    @* <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script> *@
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

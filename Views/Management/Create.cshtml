@@ -1,0 +1,99 @@
+@using UniversityManagementMvc.Dto.RequestModel
+@model CreateManagementRequestModel
+@if (ViewData != null)
+{
+    <h2>@TempData["success"]</h2>
+}
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] UniversityManagementApp</title>
+    <style>
+        #trans:hover {
+            background-color: rgb(0, 128, 28);
+        }
+
+        div {
+            color: blueviolet;
+
+        }
+        body{
+            background-image:management.jpg ;
+        }
+
+        h2 {
+            text-align: center;
+            text-decoration: underline;
+            color: blue;
+        }
+        div{
+            background-image: url('');
+        }
+    </style>
+</head>
+<h3 style="font-family:cabri;font-size : 20px;">Welcome Create a Management<br>
+    <marquee direction="right"></marquee>Register a Management</marquee>
+</h3>
+<div style="font-size: 120%;">
+
+    <div id="reg-form">
+        <form enctype="multipart/form-data" asp-action="CreateManagement">
+
+            <div class="form-row">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" placeholder="Biggs" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div><br>
+
+            <div class="form-row">
+
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" placeholder="Lewandowski" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+
+            </div><br>
+            <div class="form-group">
+                <label for="Email" class="control-label">Email</label>
+                <input type="email" name="Email" id="Email" class="form-control" />
+            </div>
+
+            <div class="form-row">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control"
+                    placeholder=" PostalNumber,street,City,LGA,State,Country" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div><br>
+
+            <div class="form-row">
+                <label asp-for="PassWord" class="control-label"></label>
+                <input asp-for="PassWord" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" type="password" id="pass"
+                    name="password" class="form-control"
+                    placeholder="Password must be 8 characters,consist at least one capital letter,one small letter,and also a number" />
+                <span asp-validation-for="PassWord" class="text-danger"></span>
+            </div><br>
+
+            <div class="form-row">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" placeholder="+2348" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div><br>
+
+            <div class="form-row">
+                <input type="file" name="Profile picture" id="profilepicture" accept=".png,.jpg,.jpeg,.gif,.tif"
+                    asp-for="ProfilePicture" class="form-control"
+                    style="border: 0px!important;padding:0px;padding-top:10px;padding-buttom:30px;"
+                    onchange="document.getElementById('ProfilePicture').src = window.URL.createObjectURL(this.files[0])" />
+                <span asp-validation-for="ProfilePicture" class="text-danger"></span>
+            </div><br>
+            <br><br>
+            <div>
+
+                <button id="trans" href="#myModal" type="submit" value="Submit"
+                    class="btn btn-success trigger-btn col-sm-12" data-toggle="modal">Submit</button>
+            </div>
+
+        </form>
+    </div>
+</div>

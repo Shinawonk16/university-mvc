@@ -1,0 +1,60 @@
+@{
+        @* Layout =Views\Shared\_SecondLayoutt.cshtml; *@
+}
+<head>
+    
+@{
+    ViewData["Title"] = "Manage Chancellor";
+}
+<h3 style = "font-family:cabri;font-size : 20px;">@ViewData["Title"]</h3>
+<style>
+    #trans{
+    border: solid cornflowerblue 1px;
+    border-radius: 22%;
+    width: 90px;
+    height: 45px;
+    background-color: rgb(7, 92, 95)
+    text-align: center;
+    @* text-decoration: underline; *@
+  }
+  #trans:hover{
+    background-color: rgba(red, green, blue, alpha);
+  }
+</style>
+
+</head>
+
+<div class="text-center">
+    <h1  style = "font-family:cabri;font-size : 60px;"class="display-4">Welcome</br>Manage Your Chancellor</h1>
+     <h1  style = "font-family:cabri;font-size : 30px;"class="display-4"><marquee direction = "left">Thanks for coming</marquee></h1>
+</div>
+<br><br><br>
+<div style="display: flex;gap:28%;">
+     <div >
+            <a  id="trans" asp-controller = "Chancellor" asp-action = "ViewAllChancellor" class = "btn btn-primary">
+                <i class="bi bi-pencil-fill"></i>Manage Chancellor
+
+            </a>
+</div>
+
+ <div  >
+            <a id="trans" asp-controller = "Chancellor" asp-action = "CreateChancellor"  class = "btn btn-primary">
+                <i class = "bi bi-plus-circle"></i>Add Chancellor
+
+            </a>
+</div>
+
+ <div  >
+            <a id="trans" asp-controller = "Chancellor" asp-action = "DeleteChancellor"  class = "btn btn-primary">
+                <i class = "bi bi-plus-circle"></i>Delete Chancellor
+
+            </a>
+</div>
+<div  >
+            <a id="trans" asp-controller = "Management" asp-action = "ManageUsers"  class = "btn btn-primary">
+                <i class="bi bi-pencil-fill"></i>Manage Users
+
+            </a>
+</div>
+</div>
+ 

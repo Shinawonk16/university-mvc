@@ -1,0 +1,59 @@
+<head>
+@{
+    ViewData["Title"] = "Chancellor page";
+}
+<h3 style = "font-family:cabri;font-size : 20px;">@ViewData["Title"]</h3>
+<style>
+    #trans{
+    border: solid cornflowerblue 1px;
+    width: 100px;
+    border-radius: 20%
+    ;
+    box-shadow: inset;
+    height: 50px;
+    background-color: rgb(7, 92, 95)
+    
+    text-align: center;
+    @* text-decoration: underline; *@
+  }
+  #trans:hover{
+    background-color: rgba(red, green, blue, alpha);
+  }
+</style>
+
+</head>
+
+<div class="text-center">
+    <h1  style = "font-family:cabri;font-size : 60px;"class="display-4">Welcome</br>Manage Your Account</h1>
+     <h1  style = "font-family:cabri;font-size : 30px;"class="display-4"><marquee direction = "left">Thanks for Using</marquee></h1>
+</div>
+<br><br><br>
+<div style="display: flex;gap:20%;">
+     <div >
+            <a  id="trans" asp-controller = "Chancellor" asp-action = "Profile" class = "btn btn-primary">
+                <i class="bi bi-plus-circle"></i>Profile
+
+            </a>
+</div>
+
+ <div  >
+            <a id="trans" asp-controller = "Chancellor" asp-action = "UpdateChancellor"  class = "btn btn-primary">
+                <i class = "bi bi-plus-circle"></i>Update Account
+
+            </a>
+</div>
+
+ <div  >
+            <a id="trans" asp-controller = "Chancellor" asp-action = "DeleteChancellor"  class = "btn btn-primary">
+                <i class = "bi bi-plus-circle"></i>Delete Account
+
+            </a>
+</div>
+<div  >
+            <a id="trans" asp-controller = "Lecturer" asp-action = "GetAllLecturer"  class = "btn btn-primary">
+                <i class="bi bi-plus-circle"></i>View Lecturers
+
+            </a>
+</div>
+</div>
+ 

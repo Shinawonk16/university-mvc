@@ -1,0 +1,65 @@
+@using UniversityManagementMvc.Data.Entities
+@model User
+@* @{
+    Layout = null;
+} *@
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] UniversityManagementApplication</title>
+</head>
+
+<body>
+    <h3 style="text-align: center ;color :rgb(4, 255, 0);"> @ViewBag.Error</h3>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class=" card col-md-6" style="background-color: mistyrose">
+                <div class="card-body ">
+                    <div class="bg-light">
+                        <h1 class="tagcolor"
+                            style="color:cornflowerblue; font-family:cabri; text-align:center; font-size: 30px;">
+                            Chancellor's Login Form</h1>
+                        <hr class="tagcolor" style="color:rgb(52, 8, 109)">
+                    </div>
+                    <form asp-action="Login" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-row">
+                        </div>
+                        <div style="color:cornflowerblue; font-family:cabri; text-align:left; font-size: 25px;"
+                            class="form-group col-sm-6">
+                            <label asp-for="Email" class="control-label"></label>
+                            <input type="email" asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div><br>
+                        <div style="color:cornflowerblue; font-family:cabri;text-align:left; font-size: 25px;"
+                            class="form-group col-sm-6">
+                            <label asp-for="PassWord" class="control-label"></label>
+                            <input asp-for="PassWord" type="password" id="pass" name="password" class="form-control" />
+                            <span asp-validation-for="PassWord" class="text-danger"></span>
+                        </div><br><br>
+                        <div style="color: lightblue;">
+
+                            <button style=" font-family:cabri; font-size: 20px;" href="#myModal" type="submit"
+                                value="Submit" class="btn btn-success trigger-btn col-sm-12"
+                                data-toggle="modal">Login</button>
+                        </div>
+                        <style>
+                            @* body{
+                                background-image: url('/login2.jpg');
+                                background-size: cover;
+                            } *@
+                            h1{
+                                text-transform: capitalize ;
+                                text-decoration: underline;
+                            }
+                            
+
+                        </style>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>

@@ -1,0 +1,134 @@
+@using UniversityManagementMvc.Dto.RequestModel
+@model CreateOldStudentRequest
+@using UniversityManagementMvc.Data.Enum;
+
+
+@if (ViewData != null)
+{
+    <h2>@TempData["success"]</h2>
+}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] UniversityManagementApp</title>
+    <style>
+        #trans:hover {
+            background-color: cornflowerblue;
+        }
+
+        div {
+            color: goldenrod;
+            justify-content: flex-start;
+            border: 20%;
+            padding: auto
+           
+
+        }
+        ::placeholder{
+            color:green;
+        }
+       
+
+        h2 {
+            text-align: center;
+            text-decoration: underline;
+            color: rgb(0, 255, 136);
+        }
+       
+    </style>
+</head>
+<body>
+    
+
+<h3 style="font-family:cabri;font-size : 20px;"><br>
+    <marquee direction="center"></marquee>Register as a Student</marquee>
+</h3>
+@* <body style="background-cobglor: blueviolet;"> *@
+<div style="font-size: 80%;">
+
+    <div id="reg-form">
+        <form enctype="multipart/form-data" asp-action=" CreateOldStudent">
+
+            <div class="form-row" style="width: 20cm;">
+
+
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" placeholder="Dikko" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+
+            </div><br>
+            <div class="form-row" style="width: 20cm;">
+
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" placeholder="Sophia" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+
+            </div><br>
+            <div class="form-group" style="width: 20cm;">
+                <label for="Email" class="control-label">Email</label>
+                <input type="email" name="Email" id="Email" class="form-control" placeholder="lakes@email.com" />
+            </div><br>
+
+            <div class="form-row" style="width: 20cm;">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control"
+                    placeholder="streetNum,City,State,Country" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div><br>
+                <div class="form-row" style="width: 20cm;">
+                <label asp-for="MatricNumber" class="control-label"></label>
+                <input asp-for="MatricNumber" class="form-control"
+                     />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div><br>
+
+
+            <div class="form-row" style="width: 20cm;">
+                <label asp-for="PassWord" class="control-label"></label>
+                <input asp-for="PassWord" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" type="password" id="pass"
+                    name="password" class="form-control"
+                    placeholder="Password must be 8 characters,consist at least one capital letter,one small letter,and also a number" />
+                <span asp-validation-for="PassWord" class="text-danger"></span>
+            </div><br>
+
+            <div class="form-row" style="width: 20cm;">
+                <label asp-for="Gender" class="control-label"></label>
+                <select asp-for="Gender" asp-items="Html.GetEnumSelectList<Gender>()"></select>
+            </div><br>
+
+            <div class="form-row" style="width: 20cm;">
+                <label asp-for="MaritalStatus" class="control-label"></label>
+                <select asp-for="MaritalStatus" asp-items="Html.GetEnumSelectList<Status>()"></select>
+            </div><br>
+
+            <div class="form-group" style="width: 20cm;">
+                <label for="DathOfBirth">Date of Birth</label>
+                <input type="date" name="DathOfBirth" id="DateOfBirth" class="form-control" />
+            </div><br>
+            <div class="form-group" style="width: 20cm;">
+                <label for="NextOfKin">Next Of Kin</label>
+                <input type="text" name="NextOfKin" id="NextOfKin" class="form-control" />
+            </div><br>
+            <div class="form-row" style="width: 20cm;">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" placeholder="+234816700465" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div><br>
+            <div class="form-row" style="width: 20cm;">
+                <input type="file" name="Profile picture" id="profilepicture" accept=".png,.jpg,.jpeg,.gif,.tif,.avif"
+                    asp-for="ProfilePicture" class="form-control"
+                    style="border: 0px!important;padding:0px;padding-top:10px;padding-buttom:30px;"
+                    onchange="document.getElementById('ProfilePicture').src = window.URL.createObjectURL(this.files[0])" />
+                <span asp-validation-for="ProfilePicture" class="text-danger"></span>
+            </div><br>
+            <br><br>
+            <div>
+
+                <button id="trans" href="#myModal" type="submit" value="Submit"
+                    class="btn btn-success trigger-btn col-sm-12" data-toggle="modal" style="width: 20cm;">Submit</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+</body>
